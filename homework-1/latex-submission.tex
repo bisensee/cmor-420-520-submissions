@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage{listings}
+
+\begin{document}
+\title{CMOR 420\slash520, Homework \#1: \LaTeX\ Submission}
+\author{\texttt{bi3}}
+\date{September 7, 2023}
+\maketitle
+
+\section{Communication with remote machines via ssh}
+
+\begin{verbatim}
+
+ssh bi3@ssh.clear.rice.edu
+(bi3@ssh.clear.rice.edu) Password:
+(bi3@ssh.clear.rice.edu) Duo two-factor login for bi3
+
+Enter a passcode or select one of the following options:
+
+ 1. Duo Push to XXX-XXX-6805
+ 2. Phone call to XXX-XXX-6805
+ 3. SMS passcodes to XXX-XXX-6805
+
+Passcode or option (1-3): 1
+Success. Logging you in... 
+The Rice University Network
+ ===========================
+ Unauthorized use is prohibited.
+
+ This computer system is for authorized users only.  Individuals using this
+ system without authority or in excess of their authority are subject to
+ having all their activities on this system monitored and recorded or
+ examined by any authorized person, including law enforcement, as system
+ personnel deem appropriate.  In the course of monitoring individuals
+ improperly using the system or in the course of system maintenance, the
+ activities of authorized users may also be monitored and recorded.  Any
+ material so recorded may be disclosed as appropriate.  Anyone using this
+ system consents to these terms.
+
+ Problems and/or questions should be submitted via the problem tracking
+ system form: http://helpdesk.rice.edu
+
+CURRENT USAGE AND LOAD ON THE COMPUTE NODES:
+  Mon Aug 28 13:20:01 CDT 2023
+ System                         # Users         Load ( 5, 10, 15 minute)
+   borax.clear.rice.edu             2             2.29, 2.05, 1.55
+   cobalt.clear.rice.edu            4             0.34, 0.28, 0.30
+   opal.clear.rice.edu              0             1.80, 2.41, 1.79
+   zorite.clear.rice.edu            3             2.81, 2.70, 2.10
+
+NOTE: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+   Please log an RT ticket for any issues you may have.
+
+   Please log a ticket at https://help.rice.edu if you have any of the following:
+     Documentation is lacking; Trouble getting in; A tool is missing.
+   NOTE: If you see "id: cannot find name for group ID <Number>" at
+         login, you can safely ignore this and move on with your work.
+
+ NOTE: NOTE: NOTE: On August 3, 2023:
+   Compute Node UPGRADE: RHEL 7 -> RHEL 8
+   Faculty: Please test your class assignments on the new nodes.
+ NOTE: NOTE: NOTE: 
+   NOTE: System host keys have been upgraded to ed25519 signing. A warning
+         about this will appear on login.  Remove old host key and accept
+         new host key.
+
+   NOTE: Python language is now python3 by default.
+
+   CLEAR NEWS -- https://kb.rice.edu/internal/page.php?id=71856
+   Tips and Hints -- https://kb.rice.edu/internal/page.php?id=71857
+   USING UPDATED clear compute node, rhel 8
+
+Last login: Mon Aug 28 13:02:42 2023 from 168.4.111.117
+/usr/bin/id: cannot find name for group ID 76762
+[bi3@cobalt ~]$ echo $HOSTNAME
+cobalt.clear.rice.edu
+
+\end{verbatim}
+
+\section{A script to build a \LaTeX\ document while hiding auxiliary files}
+
+%  \lstset{basicstyle = \ttfamily, language = bash}
+
+
+\begin{lstlisting}[language=bash,basicstyle=\ttfamily]
+#!/bin/bash
+
+read -p "Project name: " project #Take file name as input
+if [ ! -d "./.build" ]; then     #If the folder .build doesn't exist,
+	mkdir ./.build           #create a new folder.
+fi
+pdflatex $project.tex            #Compile the LaTeX file.
+mv $project*.aux ./.build        #Move any aux files to .build folder.       
+\end{lstlisting}
+
+The first way the above code may fail is if the user inputs a name that doesn't match the original file exactly, i.e. the cases don't match. The second way the code may fail is if the LaTeX file is not located in the same directory as the shell script.
+
+\end{document}
