@@ -1,0 +1,20 @@
+Contiguous matrix multiplication, m = 1000, n = 1000, number of samples = 10, average time = 0.004300
+Contiguous transpose matrix multiplication, m = 1000, n = 1000, number of samples = 10, average time = 0.006213
+Non-contiguous matrix multiplication, m = 1000, n = 1000, number of samples = 10, average time = 0.004854
+Non-contiguous transpose matrix multiplication, m = 1000, n = 1000, number of samples = 10, average time = 0.010008
+
+Contiguous matrix multiplication, m = 2000, n = 2000, number of samples = 10, average time = 0.016241
+Contiguous transpose matrix multiplication, m = 2000, n = 2000, number of samples = 10, average time = 0.060537
+Non-contiguous matrix multiplication, m = 2000, n = 2000, number of samples = 10, average time = 0.020777
+Non-contiguous transpose matrix multiplication, m = 2000, n = 2000, number of samples = 10, average time = 0.070714
+
+Contiguous matrix multiplication, m = 3000, n = 3000, number of samples = 10, average time = 0.045804
+Contiguous transpose matrix multiplication, m = 3000, n = 3000, number of samples = 10, average time = 0.141352
+Non-contiguous matrix multiplication, m = 3000, n = 3000, number of samples = 10, average time = 0.044203
+Non-contiguous transpose matrix multiplication, m = 3000, n = 3000, number of samples = 10, average time = 0.144999
+
+Contiguous matrix multiplication, m = 4000, n = 4000, number of samples = 10, average time = 0.229530
+Contiguous transpose matrix multiplication, m = 4000, n = 4000, number of samples = 10, average time = 0.391721
+Non-contiguous matrix multiplication, m = 4000, n = 4000, number of samples = 10, average time = 0.096590
+Non-contiguous transpose matrix multiplication, m = 4000, n = 4000, number of samples = 10, average time = 0.544047
+
